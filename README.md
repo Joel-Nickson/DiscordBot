@@ -3,6 +3,7 @@ Cupid connecting over multiple apis
 
 To see cupid in action head over to [Cupids HQ](https://discord.gg/8nFnYFvj95) .
 
+***********************************************************
 
 @cupid mentions return a value
 
