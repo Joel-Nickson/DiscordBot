@@ -41,7 +41,7 @@ module.exports = async (event, context) => {
       channel_id: `${event.channel_id}`,
       content: [
         `Hey <@!${event.author.id}>! I'm Cupid (a bot powered by Autocode).`,
-        `I found you a blahaj photo just like you asked`,
+        `I found you a blahaj picture just like you asked`,
         `${photo}`,
       ].join('\n'),
       tts: false,
@@ -61,25 +61,27 @@ module.exports = async (event, context) => {
       includeMetadata: false,
       selectorQueries: [
         {
-          selector: `h3.event-name`,
+          selector: `h3.event-name, p.event-date`,
           resolver: `text`,
         },
       ],
     });
     // console.log(result.crawler.pageData.queryResults);
     let mlh_events =
-      result.crawler.pageData.queryResults[0][
-        Math.floor(
-          Math.random() * result.crawler.pageData.queryResults[0].length
-        )
-      ];
+      result.crawler.pageData.queryResults[0].slice(0,20);
     console.log(mlh_events);
-
+    
+    for (let i = 0; i < 10; i++) {
+      mlh_events[i] = mlh_events[2*i].text+" ( ";
+      mlh_events[i] += mlh_events[2*i+1].text+" ) \n";  
+    }
+    mlh_events=mlh_events.slice(0,10);
+    console.log(mlh_events);
     let messageResponse = await lib.discord.channels['@0.0.2'].messages.create({
       channel_id: `${event.channel_id}`,
       content: [
-        `Hey found an event you might be interested in this hackathon season`,
-        `Hey its called ${mlh_events.text}`,
+        `Hey found some event's you might be interested in this hackathon season`,
+        `Have a look\n\n${mlh_events.toString()}`,
       ].join('\n'),
       tts: false,
     });
