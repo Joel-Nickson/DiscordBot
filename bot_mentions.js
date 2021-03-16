@@ -1,3 +1,4 @@
+/******************** sample of the code written using autocode ******************/
 // authenticates you with the API standard library
 const lib = require('lib')({token: process.env.STDLIB_SECRET_TOKEN});
 
