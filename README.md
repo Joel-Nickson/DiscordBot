@@ -1,5 +1,5 @@
 # DiscordBot
-Cupid connecting over multiple apis
+Cupid connecting over multiple apis following [connecting apis](https://www.twitch.tv/videos/947045439?filter=archives&sort=time)
 
 To see cupid in action head over to [Cupids HQ](https://discord.gg/8nFnYFvj95) .
 
